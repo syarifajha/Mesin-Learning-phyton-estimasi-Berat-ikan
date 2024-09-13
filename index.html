@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Estimasi Berat Ikan</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <form action="{{ url_for('predict') }}" method="post">
+        <main class="bg-white p-16 rounded-lg text-center">
+            <h1 class="text-3xl font-bold mb-8">
+                Estimasikan Berat Ikan Anda
+            </h1>
+            <div class="mb-3 ">
+                <!-- Height Input -->
+                <label for="Height" class="form-label">
+                    Tinggi (Height):
+                    <small class="text-muted">(Masukkan tinggi Ikan)</small>
+                </label>
+                <input type="float" name="Height" placeholder="" required="required" class="form-control"
+                    style="width: 50%; margin: 0 auto;" />
+            </div>
+
+
+            <div class="mb-3">
+                <!-- Width Input -->
+                <label for="Width" class="form-label">
+                    Lebar (Width):
+                    <small class="text-muted">(Masukkan Lebar Ikan)</small>
+                </label>
+                <input type="float" name="Width" placeholder="" required="required" class="form-control"
+                    style="width: 50%; margin: 0 auto;" />
+            </div>
+
+            <div class="mb-3">
+                <!-- LengthVer Input -->
+                <label for="LengthVer" class="form-label">
+                    Panjang Vertical (LengthVer):
+                    <small class="text-muted">(Masukkan Panjang Vertical Ikan)</small>
+                </label>
+                <input type="float" name="LengthVer" placeholder="" required="required" class="form-control"
+                    style="width: 50%; margin: 0 auto;" />
+            </div>
+
+            <div class="mb-3">
+                <!-- LengthDia Input -->
+                <label for="LengthDia" class="form-label">
+                    Panjang Diagonal (LengthDia):
+                    <small class="text-muted">(Masukkan Panjang Diagonal Ikan)</small>
+                </label>
+                <input type="float" name="LengthDia" placeholder="" required="required" class="form-control"
+                    style="width: 50%; margin: 0 auto;" />
+            </div>
+
+            <div class="mb-0">
+                <!-- LengthCro Input -->
+                <label for="LengthCro" class="form-label">
+                    Panjang Silang (LengthCro):
+                    <small class="text-muted">(Masukkan Panjang Silang Ikan)</small>
+                </label>
+                <input type="float" name="LengthCro" placeholder="" required="required" class="form-control"
+                    style="width: 50%; margin: 0 auto;" />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mt-4">
+                Proses Estimasi Sekarang
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-arrow-right ml-2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </main>
+    </form>
+
+
+    <section>
+        <div>
+            <h1 class="text-2xl mb-8 text-center" id="estimatedWeight">
+                Estimasi Berat Ikan Adalah {{ Estimated_Weight }} Gram
+            </h1>
+        </div>
+    </section>
+
+    <!-- Bootstrap JavaScript and Popper.js scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-cTyR9wE7x8jmX3ujW9o2c2eL/7w+dPzSgqDn5M9frKiMtp5Gw8Iyq9a93dXI2R9"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
